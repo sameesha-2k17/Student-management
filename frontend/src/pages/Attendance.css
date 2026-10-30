@@ -1,0 +1,121 @@
+.attendance-page {
+  padding-bottom: 140px; 
+}
+
+.attendance-header {
+  margin-bottom: var(--space-xl);
+}
+
+.filters-card {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.student-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border-left: 6px solid transparent;
+  transition: var(--transition-bounce);
+  background: var(--surface-bg-solid);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.student-row:hover {
+  transform: translateX(6px) scale(1.01);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(255,255,255,0.05);
+}
+
+.present-row {
+  border-left-color: var(--color-success);
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.08) 0%, var(--surface-bg-solid) 100%);
+}
+
+.absent-row {
+  border-left-color: var(--color-danger);
+  background: linear-gradient(90deg, rgba(225, 29, 72, 0.08) 0%, var(--surface-bg-solid) 100%);
+}
+
+.student-info h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-full);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: var(--transition-bounce);
+  border: 2px solid transparent;
+}
+
+.btn-present {
+  background: var(--color-success-light);
+  color: var(--color-success);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.btn-present:hover {
+  background: var(--color-success-gradient);
+  color: #020617; /* Dark text for contrast against bright green */
+  border-color: transparent;
+  box-shadow: 0 5px 15px var(--color-success-glow);
+  transform: scale(1.05);
+}
+
+.btn-absent {
+  background: var(--color-danger-gradient);
+  color: white;
+  box-shadow: 0 5px 15px var(--color-danger-glow);
+}
+
+.btn-absent:hover {
+  background: var(--color-danger);
+  transform: scale(1.05);
+}
+
+.controls-bar {
+  background: rgba(30, 41, 59, 0.5);
+  padding: 1rem;
+  border-radius: var(--border-radius-lg);
+  backdrop-filter: blur(10px);
+  margin-bottom: var(--space-xl);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+@media (max-width: 768px) {
+  .student-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .toggle-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .sticky-bottom-bar {
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  .sticky-bottom-bar .save-btn {
+    width: 100%;
+  }
+}
