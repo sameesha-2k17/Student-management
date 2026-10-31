@@ -1,9 +1,23 @@
 services:
+  # Backend Web Service (Free Tier)
   - type: web
     name: student-management-backend
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt && python backend/manage.py migrate
     startCommand: gunicorn --chdir backend config.wsgi:application
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
+
+  # Frontend Static Site (Free Tier)
+  - type: web
+    name: student-management-frontend
+    runtime: static
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
